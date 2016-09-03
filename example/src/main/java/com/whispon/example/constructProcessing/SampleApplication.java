@@ -1,11 +1,6 @@
 package com.whispon.example.constructProcessing;
 
 import android.app.Application;
-import android.graphics.Color;
-import android.util.Log;
-import com.whispon.constructProcessing.Audience;
-import com.whispon.constructProcessing.Seat;
-import com.whispon.constructProcessing.constructProcessing;
 
 /**
  * Copyright (C) 2015 Wasabeef
@@ -27,22 +22,9 @@ public class SampleApplication extends Application {
 
   @Override public void onCreate() {
     super.onCreate();
-    Takt.stock(this)
-        .seat(Seat.TOP_RIGHT)
-        .interval(250)
-        .color(Color.WHITE)
-        .size(14f)
-        .alpha(.5f)
-        .listener(new Audience() {
-          @Override public void heartbeat(double fps) {
-            Log.d("Excellent!", fps + " fps");
-          }
-        })
-        .play();
   }
 
   @Override public void onTerminate() {
-    Takt.finish();
     super.onTerminate();
   }
 }

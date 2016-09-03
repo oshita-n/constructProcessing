@@ -5,13 +5,25 @@ package com.whispon.example.constructProcessing;
  */
 public class Config {
 
-    //実際の通信処理
+    /**
+     * 実際の通信処理
+     */
     public void mainRun() {
 
     }
 
-    //通信処理が失敗した時の処理
+    /**
+     * 通信処理が失敗した時の処理
+     */
     public void faildRun() {
+
+    }
+
+    /**
+     * 処理中にプログレスアイコンを表示する
+     * 時間があれば実装
+     */
+    public void displayIcon() {
 
     }
 }
