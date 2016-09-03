@@ -1,2 +1,3 @@
-# constructProcessing
-ネットワークの通信処理を構造的に書くライブらり
+# constructProcessing  
+  
+  通信を構造的に記述できるようにするライブラリ  
