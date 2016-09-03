@@ -1,4 +1,4 @@
-package jp.wasabeef.takt;
+package com.whispon.constructProcessing;
 
 import android.app.Application;
 import android.content.Context;
@@ -73,7 +73,7 @@ public class Takt {
       wm = WindowManager.class.cast(application.getSystemService(Context.WINDOW_SERVICE));
       LayoutInflater inflater = LayoutInflater.from(application);
       stageView = inflater.inflate(R.layout.stage, new RelativeLayout(application));
-      fpsText = (TextView) stageView.findViewById(R.id.takt_fps);
+      fpsText = (TextView) stageView.findViewById(R.id.constructProcessing_fps);
 
       listener(new Audience() {
         @Override public void heartbeat(double fps) {

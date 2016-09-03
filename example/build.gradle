@@ -19,6 +19,6 @@ android {
 }
 
 dependencies {
-  compile project(':takt')
+  compile project(':constructProcessing')
   compile "com.android.support:appcompat-v7:${SUPPORT_PACKAGE_VERSION}"
 }

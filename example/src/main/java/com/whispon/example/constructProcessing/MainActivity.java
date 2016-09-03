@@ -1,4 +1,4 @@
-package jp.wasabeef.example.takt;
+package com.whispon.example.constructProcessing;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

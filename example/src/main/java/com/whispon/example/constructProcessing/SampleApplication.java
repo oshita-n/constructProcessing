@@ -1,11 +1,11 @@
-package jp.wasabeef.example.takt;
+package com.whispon.example.constructProcessing;
 
 import android.app.Application;
 import android.graphics.Color;
 import android.util.Log;
-import jp.wasabeef.takt.Audience;
-import jp.wasabeef.takt.Seat;
-import jp.wasabeef.takt.Takt;
+import com.whispon.constructProcessing.Audience;
+import com.whispon.constructProcessing.Seat;
+import com.whispon.constructProcessing.constructProcessing;
 
 /**
  * Copyright (C) 2015 Wasabeef

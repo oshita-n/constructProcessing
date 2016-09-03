@@ -1,4 +1,4 @@
-package jp.wasabeef.example.takt;
+package com.whispon.example.constructProcessing;
 
 import org.junit.Test;
 
