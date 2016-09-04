@@ -12,4 +12,8 @@ public class NetWorkException extends Exception {
     public NetWorkException(String detailMessage){
         this.detailMessage = detailMessage;
     }
+
+    public NetWorkException(Throwable throwable){
+        super(throwable);
+    }
 }
