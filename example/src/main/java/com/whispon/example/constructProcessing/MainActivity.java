@@ -8,25 +8,22 @@ import android.widget.Toast;
 
 import com.whispon.constructProcessing.*;
 
-import com.whispon.constructProcessing.NetWorkExecute;
-import com.whispon.example.constructProcessing.R;
-
 public class MainActivity extends AppCompatActivity {
 
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CPHttp cpHttp = new CPHttp();
         ProgressBar progressBar;
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        cpHttp.get("http://www.gundam.info", new OnResult() {
+
+        CPHttp cpHttp = new CPHttp();
+        cpHttp.get("http://whispon.com", new OnResult() {
             @Override
             public void onSuccess(String response) {
-                Log.d("aaa", "onSuccess");
+                Log.d("success", "onSuccess");
             }
-
             @Override
-            public void onError(NetWorkException exception) {
+            public void onFailure(NetworkException exception) {
                 Toast.makeText(MainActivity.this, exception.toString(), Toast.LENGTH_SHORT).show();
             }
         }, progressBar);

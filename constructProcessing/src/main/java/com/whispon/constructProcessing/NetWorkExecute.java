@@ -15,7 +15,7 @@ import java.net.URL;
 /**
  * Created by noriakioshita on 2016/09/04.
  */
-public class NetWorkExecute extends AsyncTask<String, Void, String> {
+public class NetworkExecute extends AsyncTask<String, Void, String> {
 
     @Override
     protected void onPreExecute() {
@@ -23,13 +23,13 @@ public class NetWorkExecute extends AsyncTask<String, Void, String> {
         // doInBackground前処理
     }
     private OnResult onResult;
-    private OnResult onError;
+    private OnResult onFailure;
     private View view;
-    public NetWorkExecute(OnResult onResult, View view) {
+    public NetworkExecute(OnResult onResult, View view) {
         this.onResult = onResult;
         this.view = view;
     }
-    public NetWorkException exception;
+    public NetworkException exception;
 
     @Override
     protected String doInBackground(String... param) {
@@ -54,7 +54,7 @@ public class NetWorkExecute extends AsyncTask<String, Void, String> {
             result = InputStreamToString(connect.getInputStream());
         } catch (IOException e) {
             e.printStackTrace();
-            exception = new NetWorkException(e);
+            exception = new NetworkException(e);
         }
         return result;
     }
@@ -64,7 +64,7 @@ public class NetWorkExecute extends AsyncTask<String, Void, String> {
         super.onPostExecute(result);
         // doInBackground後処理
         if(result != null) onResult.onSuccess(result);
-        else onResult.onError(exception);
+        else onResult.onFailure(exception);
 
         if(this.view != null) this.view.setVisibility(View.GONE);
     }
