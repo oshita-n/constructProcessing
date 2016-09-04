@@ -1,12 +1,15 @@
 package com.whispon.example.constructProcessing;
 
 import android.os.Handler;
+import android.util.Xml;
+
+import java.io.IOException;
 
 /**
  * Created by noriakioshita on 2016/09/03.
  */
 
-public class Config implements onSuccess, onError {
+public class Config implements OnSuccess, OnError {
     /**
      * 実際の通信処理
      */
@@ -25,24 +28,23 @@ public class Config implements onSuccess, onError {
      * 処理中にプログレスアイコンを表示する
      * 時間があれば実装
      */
-    public void displayIcon() {
+    public void displayProgress() {
 
     }
 
     /**
      * onSuccess
      * 成功した時の処理を書く
+     * ユーザーが任意に書く
      */
-    public void onSucccess() {
 
-    }
+    public void onSuccess(String response) {}
 
     /**
      * onError
      * 失敗した時の処理を書く
+     * ユーザーが任意に書く
      */
-    public void Error() {
-
-    }
+    public void onError(IOException e) {}
 
 }
