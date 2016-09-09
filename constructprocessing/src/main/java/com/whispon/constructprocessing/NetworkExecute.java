@@ -27,7 +27,7 @@ public class NetworkExecute extends AsyncTask<String, Void, String> {
         this.view = view;
     }
     public NetworkException exception;
-
+    String restMode = "";
     @Override
     protected String doInBackground(String... param) {
         HttpURLConnection connect = null;
@@ -39,7 +39,7 @@ public class NetworkExecute extends AsyncTask<String, Void, String> {
             // 接続用オブジェクトの作成
             connect = (HttpURLConnection)url.openConnection();
             //restTypeでgetやputを分ける
-            connect.setRequestMethod("GET");
+            connect.setRequestMethod(restMode);
             // リダイレクトを自動でしない設定
             connect.setInstanceFollowRedirects(false);
             // URL接続からデータを読み取る場合はtrue
@@ -76,5 +76,9 @@ public class NetworkExecute extends AsyncTask<String, Void, String> {
         }
         br.close();
         return sb.toString();
+    }
+
+    public void setRestMode(String restMode) {
+        this.restMode = restMode;
     }
 }
