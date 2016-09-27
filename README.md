@@ -17,13 +17,13 @@ progressBar = (ProgressBar) findViewById(R.id.progressBar);
 CPHttp cpHttp = new CPHttp();  
 cpHttp.get("http://whispon.com", new OnResult() {  
     @Override  
-        public void onSuccess(String response) {  
-            Log.d("success", "onSuccess");  
-        }  
+    public void onSuccess(String response) {  
+        Log.d("success", "onSuccess"); 
+    }  
     @Override  
-        public void onFailure(NetworkException exception) {  
-            Toast.makeText(MainActivity.this, exception.toString(), Toast.LENGTH_SHORT).show();  
-        }  
+    public void onFailure(NetworkException exception) {  
+        Toast.makeText(MainActivity.this, exception.toString(), Toast.LENGTH_SHORT).show();  
+    } 
 },progressBar);  
 ```
 ## Licence
