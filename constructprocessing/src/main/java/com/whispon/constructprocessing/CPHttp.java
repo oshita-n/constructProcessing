@@ -8,21 +8,36 @@ import android.view.View;
 public class CPHttp {
 
     public void get(String url) {
-        NetworkExecute netWorkExecute = new NetworkExecute(new OnResult() {
+        NetworkExecute netWorkExecute = new NetworkExecute(new OnSuccess() {
             @Override
-            public void onSuccess(String response) {}
+            public void onSuccess(String response) {
+
+            }
+        }, new OnFailure() {
             @Override
-            public void onFailure(NetworkException e) {}
+            public void onFailure(NetworkException e) {
+
+            }
         }, null);
         netWorkExecute.setRestMode("GET");
         netWorkExecute.execute(url);
     }
+    public void get(String url, OnSuccess onSuccess, OnFailure onFailure) {
+        NetworkExecute networkExecute = new NetworkExecute(onSuccess, onFailure, null);
+        networkExecute.setRestMode("GET");
+        networkExecute.execute(url);
+    }
 
+    public void get(String url, OnSuccess onSuccess, OnFailure onFailure, View progress) {
+        NetworkExecute networkExecute = new NetworkExecute(onSuccess, onFailure, progress);
+        networkExecute.setRestMode("GET");
+        networkExecute.execute(url);
+    }
+    /*
     public void get(String url, OnResult onResult) {
         NetworkExecute networkExecute = new NetworkExecute(onResult, null);
         networkExecute.setRestMode("GET");
         networkExecute.execute(url);
-
     }
 
     public void get(String url, OnResult onResult, View progress) {
@@ -99,4 +114,5 @@ public class CPHttp {
         networkExecute.setRestMode("DELETE");
         networkExecute.execute(url);
     }
+    */
 }

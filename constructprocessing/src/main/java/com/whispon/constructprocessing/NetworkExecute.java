@@ -20,10 +20,12 @@ public class NetworkExecute extends AsyncTask<String, Void, String> {
         super.onPreExecute();
         // doInBackground前処理
     }
-    private OnResult onResult;
+    private OnSuccess onSuccess;
+    private OnFailure onFailure;
     private View view;
-    public NetworkExecute(OnResult onResult, View view) {
-        this.onResult = onResult;
+    public NetworkExecute(OnSuccess onSuccess, OnFailure onFailure, View view) {
+        this.onSuccess = onSuccess;
+        this.onFailure = onFailure;
         this.view = view;
     }
     public NetworkException exception;
@@ -60,8 +62,8 @@ public class NetworkExecute extends AsyncTask<String, Void, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
         // doInBackground後処理
-        if(result != null) onResult.onSuccess(result);
-        else onResult.onFailure(exception);
+        if(result != null) onSuccess.onSuccess(result);
+        else onFailure.onFailure(exception);
 
         if(this.view != null) this.view.setVisibility(View.GONE);
     }
