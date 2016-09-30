@@ -6,26 +6,44 @@ Writable Constract HTTP client for Android.
 Normal network processing is used try catch sentence.
 But it is difficult to understand and complex.  
 constructProcessing is construct network processing.  
-2 pattern attribute.onSuccess is network process is success.onError is failure;
-## Demo
-<img src="art/constructProcessing.gif" width="50%">
-## How to use
+2 pattern attribute.onSuccess is network process,When success.onError is network process,When failure.  
+## How to use  
 ```java
-ProgressBar progressBar;  
-progressBar = (ProgressBar) findViewById(R.id.progressBar);  
+@Override  
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-CPHttp cpHttp = new CPHttp();  
-cpHttp.get("http://whispon.com", new OnResult() {  
-    @Override  
-    public void onSuccess(String response) {  
-        Log.d("success", "onSuccess"); 
-    }  
-    @Override  
-    public void onFailure(NetworkException exception) {  
-        Toast.makeText(MainActivity.this, exception.toString(), Toast.LENGTH_SHORT).show();  
-    } 
-},progressBar);  
+    ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
+    CPHttp cpHttp = new CPHttp();
+    cpHttp.get("http://whispon.com", new OnSuccess() {
+        @Override
+        public void onSuccess(String response) {
+            Log.d("success", response);
+        }
+    }, new OnFailure() {
+        @Override
+        public void onFailure(NetworkException e) {
+            Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show();
+        }
+    }, progressBar);
+}
 ```
+
+##Lamda version.  
+```java
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+  
+    ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
+    CPHttp cpHttp = new CPHttp();
+    cpHttp.get("http://whispon.com", (String response) -> Log.d("success", response)
+    , (NetworkException e) -> Toast.makeText(MainActivity.this, e.toString(), Toast.LENGTH_LONG).show(), progressBar);
+}
+```
+
 ## Licence
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)]  
 (https://www.apache.org/licenses/LICENSE-2.0)  

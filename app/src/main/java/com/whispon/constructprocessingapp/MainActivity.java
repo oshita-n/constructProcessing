@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
      *
      * No lamda version.
      *
+     *
      * @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
