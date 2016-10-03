@@ -8,6 +8,16 @@ But it is difficult to understand and complex.
 constructProcessing is construct network processing.  
 2 pattern attribute.onSuccess is network process,When success.onError is network process,When failure.  
 ## How to use  
+```gradle
+//add gradle(app)
+repositories {
+    maven { url 'http://raw.github.com/Ooshita/constructProcessing/master/repository/' }
+}
+dependencies {
+    compile 'com.whispon:constructprocessing:1.0.0'
+}
+```
+
 ```java
 @Override  
 protected void onCreate(Bundle savedInstanceState) {

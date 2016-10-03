@@ -23,3 +23,18 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
 }
+
+def repo = new File(rootDir, "repository")
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${repo.absolutePath}"
+            pom.version = '1.0.0'
+            pom.groupId = 'com.whispon'
+            pom.artifactId = 'constructprocessing'
+        }
+    }
+}

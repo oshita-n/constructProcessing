@@ -1,4 +1,4 @@
-package com.whispon.constructprocessingapp;
+package com.whispon.constructprocessing.sample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

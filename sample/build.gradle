@@ -10,10 +10,6 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
-
-        jackOptions {
-            enabled true
-        }
     }
     buildTypes {
         release {
@@ -33,3 +29,21 @@ dependencies {
     compile project(':constructprocessing')
     compile 'com.android.support:appcompat-v7:24.2.0'
 }
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.3.0'
+    }
+}
+
+// Required because retrolambda is on maven central
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
