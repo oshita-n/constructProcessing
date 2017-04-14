@@ -40,7 +40,7 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-##Lamda version.  
+## Lamda version.  
 ```java
 @Override
 protected void onCreate(Bundle savedInstanceState) {
@@ -59,5 +59,4 @@ protected void onCreate(Bundle savedInstanceState) {
 (https://www.apache.org/licenses/LICENSE-2.0)  
 
 ## Author
-
 [Ooshita](https://github.com/Ooshita)
